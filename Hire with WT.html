@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Hire with WT — Tech Outsourcing for Growth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="description" content="Build your tech team with vetted LATAM talent. Transparent cost-plus outsourcing. Hire developers in 24–72h." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --ink:#e8f1ff;
+      --muted:#9bb0d6;
+      --accent:#00e5ff;
+      --accent-2:#7c4dff;
+      --glass: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.12);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji",sans-serif;line-height:1.5}
+    a{color:var(--ink);text-decoration:none}
+    .container{max-width:1180px;margin:0 auto;padding:0 24px}
+    .btn{
+      display:inline-flex;align-items:center;gap:.6rem;
+      padding:12px 18px;border-radius:12px;font-weight:600;
+      border:1px solid var(--stroke);background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      backdrop-filter:saturate(140%) blur(8px); transition:.25s ease; cursor:pointer
+    }
+    .btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.22)}
+    .btn.primary{
+      background:
+        linear-gradient(90deg, rgba(124,77,255,.25), rgba(0,229,255,.25)),
+        linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06));
+      border-color:transparent;
+      box-shadow:0 8px 28px rgba(0,229,255,.18), inset 0 0 0 1px rgba(255,255,255,.08)
+    }
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--stroke);color:var(--muted);font-size:12px}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:linear-gradient(to bottom, rgba(11,18,32,.85), rgba(11,18,32,.55) 60%, rgba(11,18,32,0));
+      backdrop-filter:blur(8px)
+    }
+    nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:.7rem;font-weight:800;letter-spacing:.3px}
+    .brand .logo{
+      width:34px;height:34px;border-radius:10px;
+      background:conic-gradient(from 180deg at 50% 50%, var(--accent), var(--accent-2), var(--accent));
+      box-shadow:0 0 0 1px rgba(255,255,255,.12) inset,0 10px 30px rgba(124,77,255,.22)
+    }
+    .menu{display:flex;gap:18px;color:var(--muted);font-weight:600}
+    .menu a{padding:8px 10px;border-radius:8px}
+    .menu a:hover{color:var(--ink);background:rgba(255,255,255,.06)}
+    /* TECH BACKDROPS */
+    .section{
+      position:relative;isolation:isolate;overflow:hidden;border-top:1px solid rgba(255,255,255,.06)
+    }
+    .tech-bg::before{
+      content:"";position:absolute;inset:0;z-index:-2;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(124,77,255,.35), transparent 60%),
+        radial-gradient(900px 600px at 10% 0%, rgba(0,229,255,.25), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.04), transparent 30%),
+        var(--hero-img, url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=2100&q=80'));
+      background-size:cover; background-position:center;
+      filter:saturate(110%) contrast(105%) brightness(70%)
+    }
+    .tech-bg::after{
+      content:"";position:absolute;inset:0;z-index:-1;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 60px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 60px),
+        linear-gradient(180deg, rgba(11,18,32,.35), rgba(11,18,32,.85) 60%, rgba(11,18,32,.95));
+      mix-blend-mode:overlay;pointer-events:none
+    }
+    /* HERO */
+    #hero{padding:110px 0 90px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    h1{font-family:Sora,Inter,sans-serif;font-size:46px;line-height:1.1;margin:0 0 14px}
+    .sub{font-size:18px;color:#c9d7ff;max-width:720px}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+    .side-card{
+      border:1px solid var(--stroke);border-radius:var(--radius);padding:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      backdrop-filter:blur(8px)
+    }
+    .stat{display:flex;align-items:center;gap:10px;margin:8px 0;color:#b9c8ee}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--accent);box-shadow:0 0 18px var(--accent)}
+    /* WHY */
+    #why{padding:88px 0}
+    .cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .card{
+      border:1px solid var(--stroke);border-radius:var(--radius);padding:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02))
+    }
+    .card h3{margin:0 0 10px;font-family:Sora,Inter,sans-serif}
+    .good li{list-style:none;margin:10px 0;padding-left:26px;position:relative}
+    .good li::before{
+      content:"✔";position:absolute;left:0;top:0;color:#00ffaa
+    }
+    .bad li{list-style:none;margin:10px 0;padding-left:26px;position:relative;color:#f7a6a6}
+    .bad li::before{content:"✘";position:absolute;left:0;top:0;color:#ff6a6a}
+    /* HOW */
+    #how{padding:86px 0}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+    .step{border:1px solid var(--stroke);border-radius:16px;padding:16px;background:var(--glass)}
+    .num{
+      display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;
+      background:linear-gradient(120deg, rgba(0,229,255,.2), rgba(124,77,255,.25));
+      font-weight:800
+    }
+    .step b{display:block;margin:10px 0 6px}
+    /* SERVICES */
+    #services{padding:86px 0}
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .service{border:1px solid var(--stroke);border-radius:16px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02))}
+    .service .chip{margin-bottom:10px}
+    /* TESTIMONIALS */
+    #testimonials{padding:86px 0}
+    .quote{
+      border:1px solid var(--stroke);border-radius:18px;padding:24px;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      font-size:18px;color:#dbe7ff
+    }
+    .quote::before{content:"“";font-size:60px;line-height:0;color:var(--accent);margin-right:10px;vertical-align:-20px}
+    .author{margin-top:10px;color:var(--muted)}
+    /* CTA */
+    #cta{padding:86px 0}
+    .banner{
+      position:relative;overflow:hidden;border-radius:22px;border:1px solid var(--stroke);
+      background:
+        radial-gradient(800px 300px at 10% -10%, rgba(0,229,255,.2), transparent 60%),
+        radial-gradient(800px 300px at 90% 120%, rgba(124,77,255,.28), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      padding:36px
+    }
+    .banner h3{margin:0 0 8px;font-size:28px;font-family:Sora,Inter,sans-serif}
+    /* FOOTER */
+    footer{padding:40px 0;color:var(--muted);border-top:1px solid var(--stroke)}
+    .foot{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+    .links{display:flex;flex-wrap:wrap;gap:14px}
+    /* RESPONSIVE */
+    @media (max-width:1020px){
+      .hero-grid{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .grid-4{grid-template-columns:1fr 1fr}
+      .cards{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      h1{font-size:34px}
+      .steps,.grid-4{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand"><span class="logo" aria-hidden="true"></span> Hire with WT</div>
+        <div class="menu" role="navigation" aria-label="Primary">
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#how">How It Works</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#footer">Contact</a>
+          <a class="btn" href="#cta">Book a Call</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="section tech-bg" style="--hero-img:url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=2100&q=80');">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="chip">LATAM • Cost-Plus • Transparent</span>
+          <h1>Build your tech team with the best LATAM talent</h1>
+          <p class="sub">We connect top-tier developers with global companies. Scalability, transparency, and fair cost in outsourcing.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#cta">Hire Developers</a>
+            <a class="btn" href="#join">Join as Talent</a>
+          </div>
+        </div>
+        <aside class="side-card" aria-label="Highlights">
+          <div class="stat"><span class="dot"></span> 6,000+ vetted engineers</div>
+          <div class="stat"><span class="dot"></span> First matches in 24–72h</div>
+          <div class="stat"><span class="dot"></span> US time-zone overlap</div>
+          <div class="stat"><span class="dot"></span> Cost-plus transparency</div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section id="why" class="section" aria-labelledby="why-title">
+    <div class="container">
+      <h2 id="why-title" style="font-family:Sora,Inter,sans-serif;margin:0 0 18px;font-size:30px">Why Hire with WT?</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>WT Outsourcing</h3>
+          <ul class="good">
+            <li>You choose the candidates</li>
+            <li>Full control over salary &amp; benefits</li>
+            <li>Pre-vetted talent in under 72h</li>
+            <li>Engineers aligned with business goals, not just coders</li>
+            <li>Long-term commitment</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Traditional Staff Aug</h3>
+          <ul class="bad">
+            <li>Agency controls payments</li>
+            <li>Limited transparency</li>
+            <li>Small candidate pool</li>
+            <li>High turnover</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="section tech-bg" style="--hero-img:url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=2100&q=80');" aria-labelledby="how-title">
+    <div class="container">
+      <h2 id="how-title" style="font-family:Sora,Inter,sans-serif;margin:0 0 18px;font-size:30px">How It Works</h2>
+      <div class="steps">
+        <div class="step"><span class="num">1</span><b>Find</b><span>We use technology + headhunting to source top LATAM/global candidates.</span></div>
+        <div class="step"><span class="num">2</span><b>Match</b><span>We present the best profiles, curated for your needs.</span></div>
+        <div class="step"><span class="num">3</span><b>Hire</b><span>You choose; we handle contracts, payroll, compliance, onboarding.</span></div>
+        <div class="step"><span class="num">4</span><b>Manage</b><span>Oversee your team with unified reports & support.</span></div>
+        <div class="step"><span class="num">5</span><b>Retain</b><span>Mentorship, career support, and retention strategies.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section" aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title" style="font-family:Sora,Inter,sans-serif;margin:0 0 18px;font-size:30px">Services</h2>
+      <div class="grid-4">
+        <div class="service"><span class="chip">Staff Augmentation</span><div>Dedicated devs or full squads.</div></div>
+        <div class="service"><span class="chip">Tech Recruiting</span><div>Specialized headhunting.</div></div>
+        <div class="service"><span class="chip">On-Demand Projects</span><div>End-to-end software delivery.</div></div>
+        <div class="service"><span class="chip">Tech Consulting</span><div>Code review, architecture, DevOps.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section tech-bg" style="--hero-img:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=2100&q=80');" aria-labelledby="testi-title">
+    <div class="container">
+      <h2 id="testi-title" style="font-family:Sora,Inter,sans-serif;margin:0 0 18px;font-size:30px">Testimonials</h2>
+      <div class="quote">
+        Hire with WT helped us build an engineering team in record time with talent truly aligned to our business.
+        <div class="author">— CTO, Partner Company</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="section" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="banner">
+        <h3 id="cta-title">Book a free call and find your next developer in less than 72h!</h3>
+        <p class="sub" style="margin:6px 0 16px">Transparent cost-plus model. Senior-first pipeline. Global experience.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://calendly.com/hire-with-wt" target="_blank" rel="noopener">Book a Call</a>
+          <a class="btn" href="#contact">Hire Developers</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container foot">
+      <div class="links">
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#how">How It Works</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#cta">Contact</a>
+      </div>
+      <div>© <span id="year"></span> Hire with WT — All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){ e.preventDefault(); document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+    });
+    // Current year
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
